@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body onload="loadProfile()">
+<nav class="navbar">
+
+<div class="logo">👤 Profile</div>
+
+<div class="nav-links">
+
+<a href="dashboard.html">🏠 Home</a>
+<a href="blogs.html">📚 Blogs</a>
+<a href="analytics.html">📊 Analytics</a>
+<a href="#" onclick="logout()">🚪 Logout</a>
+
+</div>
+
+</nav>
+
+<div class="profile-card">
+
+<img
+class="profile-avatar"
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<h2 id="displayName">Thilagavathi Selvam</h2>
+
+<br>
+
+<input
+id="profileName"
+type="text"
+placeholder="Update Name">
+
+<button
+class="btn"
+onclick="saveProfile()">
+
+Save Profile
+
+</button>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

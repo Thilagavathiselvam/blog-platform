@@ -1,0 +1,60 @@
+CREATE DATABASE blogdb;
+USE blogdb;
+DELETE u1
+FROM users u1
+INNER JOIN users u2
+WHERE u1.id > u2.id
+AND u1.email = u2.email;
+SELECT *
+FROM users
+WHERE email = 'kavya@gmail.com';
+SELECT email, COUNT(*)
+FROM users
+GROUP BY email
+HAVING COUNT(*) > 1;
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+CREATE TABLE posts (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    author VARCHAR(100)
+);
+CREATE TABLE contact_messages(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    message VARCHAR(1000)
+);
+SELECT * FROM posts;
+CREATE TABLE comments (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    comment_text VARCHAR(1000),
+    username VARCHAR(100),
+    post_id BIGINT
+);
+INSERT INTO users(name,email,password)
+VALUES
+('Thilagavathi','thilaga@gmail.com','123456'),
+('Admin','admin@gmail.com','admin123');
+INSERT INTO posts(title,content,author)
+VALUES
+('Spring Boot Basics',
+ 'Introduction to Spring Boot',
+ 'Thilagavathi'),
+
+('Java Collections',
+ 'Learning List Set and Map',
+ 'Admin');
+ INSERT INTO comments(comment_text,username,post_id)
+VALUES
+('Very useful article','Thilagavathi',1),
+('Thanks for sharing','Admin',1),
+('Good explanation','User1',2);
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM comments;

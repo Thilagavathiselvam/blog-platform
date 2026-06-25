@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>All Messages</title>
+</head>
+<body>
+
+<h1>📩 Contact Messages</h1>
+
+<div id="messages"></div>
+
+<script>
+
+fetch("http://localhost:8080/api/contact")
+.then(response => response.json())
+.then(data => {
+
+    let output="";
+
+    data.forEach(msg => {
+
+        output += `
+        <div style="
+        border:1px solid #ddd;
+        padding:15px;
+        margin:10px;">
+        
+        <h3>${msg.name}</h3>
+
+        <p>Email: ${msg.email}</p>
+
+        <p>${msg.message}</p>
+
+        </div>
+        `;
+    });
+
+    document.getElementById("messages").innerHTML = output;
+});
+
+</script>
+
+</body>
+</html>
